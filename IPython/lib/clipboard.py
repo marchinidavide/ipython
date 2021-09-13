@@ -30,6 +30,7 @@ def win32_clipboard_get():
             raise ClipboardEmpty from e
     finally:
         win32clipboard.CloseClipboard()
+    text = text.replace("\r", "")
     return text
 
 def osx_clipboard_get() -> str:
